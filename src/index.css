@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Starborn';
+  src: url('/Starborn.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --font-starborn: 'Starborn', sans-serif;
+  --color-dark: #121212;
+  --color-primary: #6a0dad;
+  --color-secondary: #ff5fa2;
+}
+
+@layer base {
+  body {
+    @apply text-white font-sans antialiased overflow-x-hidden;
+    background: linear-gradient(135deg, #251230, #2c1226);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-secondary/30 text-white;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #180a1f; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6a0dad; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5fa2; 
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text;
+}
+
+.text-gradient-animated, .text-gradient-animated * {
+  background-image: linear-gradient(to right, #ff5fa2, #6a0dad);
+  background-attachment: fixed;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+@keyframes profile-blob-morph {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+  67% { border-radius: 30% 70% 30% 70% / 50% 60% 30% 50%; }
+  100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+}
+
+.profile-animate-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover .profile-animate-hover {
+  animation: profile-blob-morph 4s ease-in-out infinite alternate;
+  transform: scale(1.06) rotate(-2deg);
+  box-shadow: 0 0 40px rgba(255, 95, 162, 0.4);
+}
+
+.group:hover .profile-bg-morph-1 {
+  animation: profile-blob-morph 3s ease-in-out infinite alternate-reverse;
+}
+
+.group:hover .profile-bg-morph-2 {
+  animation: profile-blob-morph 5s ease-in-out infinite alternate;
+}

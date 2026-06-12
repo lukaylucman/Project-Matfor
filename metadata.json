@@ -1,0 +1,6 @@
+{
+  "name": "Matematika Informatika",
+  "description": "Media pembelajaran interaktif untuk membantu mahasiswa memahami konsep-konsep Matematika Informatika.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
